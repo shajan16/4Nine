@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { UserContext } from "./Context/Context";
 
 export default function Admin() {
@@ -10,6 +10,7 @@ export default function Admin() {
     let [description, setDescription] = useState("");
     let [price, setPrice] = useState("");
     let [image, setImage] = useState(null);
+    const imageInputRef = useRef(null);
     let [password, setPassword] = useState("");
 
     let [lock, setlock] = useState(false);
@@ -36,6 +37,9 @@ export default function Admin() {
       setDescription("");
       setPrice("");
       setImage(null);
+      if (imageInputRef && imageInputRef.current) {
+        imageInputRef.current.value = "";
+      }
     } catch (error) {
       console.log(error);
       
@@ -116,9 +120,9 @@ export default function Admin() {
             type="file"
             name="image"
             accept="image/*"
-            value={image}
             required
-            onChange={(e)=>setImage(e.target.files[0])}
+            ref={imageInputRef}
+            onChange={(e) => setImage(e.target.files && e.target.files[0])}
             className="w-full text-sm text-gray-400 file:bg-white file:text-black file:px-4 file:py-2 file:rounded-lg file:border-0 file:cursor-pointer"
           />
         </div>
