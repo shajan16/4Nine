@@ -5,7 +5,7 @@ export const UserContext = createContext();
 export const Provider = ({ children }) => {
 
   // Server-URL
-  const URL="http://localhost:4000";
+  const URL="https://fournine-server.onrender.com";
 
     let [data,setdata]=useState([]);
     
