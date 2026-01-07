@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import QR from "../assets/Screenshot_2026-01-05-14-27-02-75_49b96b5fbae0d12a18edc4a3afe0dfd9.jpg";
+import QR from "../assets/IMG_20260107_141121.jpg";
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -96,7 +96,7 @@ export default function Payment() {
           </div>
 
         <label className="block text-sm text-gray-300 mb-2 mt-6">
-          Enter Transaction ID:
+          Please complete the payment by scanning the QR code, Once the payment is successful, enter the UPI transaction ID to place your order.
         </label>
 
         <input
